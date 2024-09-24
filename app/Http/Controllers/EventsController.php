@@ -15,8 +15,8 @@ class EventsController extends Controller
 
         // Map sortable columns to their respective database columns
         $sortableColumns = [
-            'participant_count' => 'calendars.participant_count',
             'course_title' => 'courses.course_title',
+            'participant_count' => 'calendars.participant_count',
             'datefrom' => 'calendars.datefrom',
             'dateto' => 'calendars.dateto',
             'instructor_name' => 'instructors.first_name',
@@ -31,7 +31,7 @@ class EventsController extends Controller
             ->join('courses', 'calendars.course_id', '=', 'courses.id')
             ->join('instructors', 'calendars.instructor_id', '=', 'instructors.id')
             ->orderBy($sortColumn, $direction)
-            ->paginate(15);
+            ->paginate(10);
 
         // Pass the sorting parameters to the view
         return view('events.index', compact('events', 'sort_by', 'direction'));
