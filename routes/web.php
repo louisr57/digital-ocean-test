@@ -19,9 +19,6 @@ Route::get('/students/{id}', [StudentController::class, 'show'])->name('students
 Route::get('/events', [EventsController::class, 'index'])->name('events.index');
 Route::get('/events/{id}', [EventsController::class, 'show'])->name('events.show');
 
-// Route::get('/calendars', [CalendarController::class, 'index'])->name('events.index');
-// Route::get('/calendars/{calendar}', [StudentController::class, 'show'])->name('events.show');
-
 Route::get('/registrations', [RegistrationController::class, 'index'])->name('registrations.index');
 Route::get('/registrations/{registration}', [RegistrationController::class, 'show'])->name('registrations.show');
 
@@ -46,6 +43,6 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
