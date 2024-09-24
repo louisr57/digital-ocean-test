@@ -31,7 +31,7 @@ class EventsController extends Controller
             ->join('courses', 'calendars.course_id', '=', 'courses.id')
             ->join('instructors', 'calendars.instructor_id', '=', 'instructors.id')
             ->orderBy($sortColumn, $direction)
-            ->paginate(10);
+            ->paginate(15);
 
         // Pass the sorting parameters to the view
         return view('events.index', compact('events', 'sort_by', 'direction'));
