@@ -9,6 +9,9 @@ use App\Models\Calendar;
 use App\Http\Controllers\EventsController;
 
 
+Route::get('/', function () {
+    return view('home', ['greeting' => 'It\'s another really beautiful day!']);
+});
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
@@ -23,9 +26,6 @@ Route::get('/registrations', [RegistrationController::class, 'index'])->name('re
 Route::get('/registrations/{registration}', [RegistrationController::class, 'show'])->name('registrations.show');
 
 
-Route::get('/', function () {
-    return view('home', ['greeting' => 'It\'s another beautiful day!']);
-});
 
 Route::get('/jobs', function () {
     return view('jobs', [
