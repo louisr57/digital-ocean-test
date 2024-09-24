@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('instructor_id');
             $table->text('remarks')->nullable();
-            $table->unsignedMediumInteger('participant_count')->nullable();
+            $table->integer('participant_count')->nullable();
             $table->timestamps();
 
             // Add foreign key constraints
