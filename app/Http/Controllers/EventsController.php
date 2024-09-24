@@ -15,7 +15,7 @@ class EventsController extends Controller
 
         // Map sortable columns to their respective database columns
         $sortableColumns = [
-            'participant_count' => 'calendars.participant_count'
+            'participant_count' => 'calendars.participant_count',
             'course_title' => 'courses.course_title',
             'datefrom' => 'calendars.datefrom',
             'dateto' => 'calendars.dateto',
