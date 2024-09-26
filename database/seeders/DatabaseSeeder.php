@@ -251,14 +251,14 @@ class DatabaseSeeder extends Seeder
         Registration::factory(500)->create();
 
         // Update participant count for each calendar (event)
-        // $calendars = Calendar::all();
+        $calendars = Calendar::all();
 
-        // foreach ($calendars as $calendar) {
-        //     // Count how many registrations this event has
-        //     $participantCount = Registration::where('event_id', $calendar->id)->count();
+        foreach ($calendars as $calendar) {
+            // Count how many registrations this event has
+            $participantCount = Registration::where('event_id', $calendar->id)->count();
 
-        //     // Update the participant_count column in the calendars table
-        //     $calendar->update(['participant_count' => $participantCount]);
-        // }
+            // Update the participant_count column in the calendars table
+            $calendar->update(['participant_count' => $participantCount]);
+        }
     }
 }

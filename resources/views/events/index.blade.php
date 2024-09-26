@@ -82,7 +82,7 @@
                             {{ $event->course->course_title }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
-                            {{ $event->registrations_count }}
+                            {{ $event->participant_count }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
                             {{ $event->datefrom }}
