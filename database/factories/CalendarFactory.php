@@ -42,6 +42,7 @@ class CalendarFactory extends Factory
             'course_id' => $course->id,
             'instructor_id' => Instructor::inRandomOrder()->first()->id,
             'remarks' => $this->faker->optional()->sentence(),
+            'participant_count' => 0,
         ];
     }
 }
