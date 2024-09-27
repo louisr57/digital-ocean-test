@@ -25,7 +25,6 @@
                                 <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
                                 <x-nav-link href="/contact" :active="request()->is('contact')">Contact </x-nav-link>
                                 --}}
-
                                 <x-nav-link href="/students" :active="request()->is('students')">ATB
                                     Students</x-nav-link>
                                 <x-nav-link href="/registrations" :active="request()->is('registrations')">ATB
