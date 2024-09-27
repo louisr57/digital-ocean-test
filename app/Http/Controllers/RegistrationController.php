@@ -17,8 +17,8 @@ class RegistrationController extends Controller
         $sortableColumns = [
             'student_name' => 'students.first_name',
             'course_name' => 'courses.course_title',
-            'datefrom' => 'calendars.datefrom',
-            'dateto' => 'calendars.dateto',
+            'datefrom' => 'events.datefrom',
+            'dateto' => 'events.dateto',
             'instructor_name' => 'instructors.first_name',
             'end_status' => 'registrations.end_status',
         ];
@@ -27,11 +27,11 @@ class RegistrationController extends Controller
         $sortColumn = $sortableColumns[$sort_by] ?? 'students.first_name';
 
         // Fetch registrations with relationships, sorted by the chosen column
-        $registrations = Registration::with(['student', 'calendar.course', 'calendar.instructor'])
+        $registrations = Registration::with(['student', 'event.course', 'event.instructor'])
             ->join('students', 'registrations.student_id', '=', 'students.id')
-            ->join('calendars', 'registrations.event_id', '=', 'calendars.id')
-            ->join('courses', 'calendars.course_id', '=', 'courses.id')
-            ->join('instructors', 'calendars.instructor_id', '=', 'instructors.id')
+            ->join('events', 'registrations.event_id', '=', 'events.id')
+            ->join('courses', 'events.course_id', '=', 'courses.id')
+            ->join('instructors', 'events.instructor_id', '=', 'instructors.id')
             ->orderBy($sortColumn, $direction)
             ->paginate(50);
 
@@ -42,7 +42,7 @@ class RegistrationController extends Controller
     public function show(Registration $registration)
     {
         // Load related data for a single registration
-        $registration->load(['student', 'calendar.course', 'calendar.instructor']);
+        $registration->load(['student', 'event.course', 'event.instructor']);
 
         return view('registrations.show', compact('registration'));
     }

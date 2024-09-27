@@ -74,27 +74,27 @@
                 <tbody>
                     @foreach ($registrations as $registration)
                     <tr class="hover:bg-gray-100">
-                        <td class="border px-4 py-2 whitespace-nowrap">
+                        {{-- <td class="border px-4 py-2 whitespace-nowrap">
                             <a href="{{ route('registrations.show', $registration->id) }}"
                                 class="text-blue-600 hover:underline">
                                 View
                             </a>
-                        </td>
+                        </td> --}}
                         <td class="border px-4 py-2 whitespace-nowrap">
                             {{ $registration->student->first_name }} {{ $registration->student->last_name }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
-                            {{ $registration->calendar->course->course_title }}
+                            {{ $registration->event->course->course_title }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
-                            {{ $registration->calendar->datefrom }}
+                            {{ $registration->event->datefrom }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
-                            {{ $registration->calendar->dateto ?? 'N/A' }}
+                            {{ $registration->event->dateto ?? 'N/A' }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
-                            {{ $registration->calendar->instructor->first_name }} {{
-                            $registration->calendar->instructor->last_name }}
+                            {{ $registration->event->instructor->first_name }} {{
+                            $registration->event->instructor->last_name }}
                         </td>
                         <td class="border px-4 py-2 whitespace-nowrap">
                             {{ ucfirst($registration->end_status) }}

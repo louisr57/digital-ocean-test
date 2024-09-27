@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Student;
-use App\Models\Calendar;
+use App\Models\Event;
 use App\Models\Registration;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -245,20 +245,20 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
-        Calendar::factory(200)->create();
+        Event::factory(200)->create();
 
         // Seed 200 registrations
         Registration::factory(500)->create();
 
-        // Update participant count for each calendar (event)
-        $calendars = Calendar::all();
+        // Update participant count for each Event (event)
+        $events = Event::all();
 
-        foreach ($calendars as $calendar) {
+        foreach ($events as $event) {
             // Count how many registrations this event has
-            $participantCount = Registration::where('event_id', $calendar->id)->count();
+            $participantCount = Registration::where('event_id', $event->id)->count();
 
-            // Update the participant_count column in the calendars table
-            $calendar->update(['participant_count' => $participantCount]);
+            // Update the participant_count column in the events table
+            $event->update(['participant_count' => $participantCount]);
         }
     }
 }

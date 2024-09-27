@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Calendar;
+use App\Models\Event;
 use App\Models\Course;
 use App\Models\Instructor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class CalendarFactory extends Factory
+class EventFactory extends Factory
 {
-    protected $model = Calendar::class;
+    protected $model = Event::class;
 
     public function definition(): array
     {

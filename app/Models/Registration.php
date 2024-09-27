@@ -17,9 +17,9 @@ class Registration extends Model
         return $this->belongsTo(Student::class);
     }
 
-    // Define relationship with the Calendar (Event) model
-    public function calendar()
+    // Define relationship with the Event model
+    public function event()
     {
-        return $this->belongsTo(Calendar::class, 'event_id');
+        return $this->belongsTo(Event::class);
     }
 }

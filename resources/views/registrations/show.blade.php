@@ -16,21 +16,21 @@
             </tr>
             <tr>
                 <th class="border px-4 py-2">Course Name</th>
-                <td class="border px-4 py-2">{{ $registration->calendar->course->course_title }}</td>
+                <td class="border px-4 py-2">{{ $registration->event->course->course_title }}</td>
             </tr>
             <tr class="bg-gray-100">
                 <th class="border px-4 py-2">Course Start Date</th>
-                <td class="border px-4 py-2">{{ $registration->calendar->datefrom }}</td>
+                <td class="border px-4 py-2">{{ $registration->event->datefrom }}</td>
             </tr>
             <tr>
                 <th class="border px-4 py-2">Course End Date</th>
-                <td class="border px-4 py-2">{{ $registration->calendar->dateto ?? 'N/A' }}</td>
+                <td class="border px-4 py-2">{{ $registration->event->dateto ?? 'N/A' }}</td>
             </tr>
             <tr class="bg-gray-100">
                 <th class="border px-4 py-2">Instructor Name</th>
                 <td class="border px-4 py-2">
-                    {{ $registration->calendar->instructor->first_name }} {{
-                    $registration->calendar->instructor->last_name }}
+                    {{ $registration->event->instructor->first_name }} {{
+                    $registration->event->instructor->last_name }}
                 </td>
             </tr>
             <tr>

@@ -21,5 +21,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::component('components.layout', 'layout');
+
+        if ($this->app->environment('local')) {
+            $this->app['config']->set('cache.route', false);
+        }
     }
 }

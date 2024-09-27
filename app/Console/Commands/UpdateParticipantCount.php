@@ -3,24 +3,24 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Calendar;
+use App\Models\Event;
 use App\Models\Registration;
 
 class UpdateParticipantCount extends Command
 {
     protected $signature = 'update:participant-count';
-    protected $description = 'Update the participant count in the calendars table based on registrations';
+    protected $description = 'Update the participant count in the events table based on registrations';
 
     public function handle()
     {
-        $calendars = Calendar::all();
+        $events = event::all();
 
-        foreach ($calendars as $calendar) {
-            // Count the number of participants for this calendar
-            $participantCount = Registration::where('event_id', $calendar->id)->count();
+        foreach ($events as $event) {
+            // Count the number of participants for this event
+            $participantCount = Registration::where('event_id', $event->id)->count();
 
-            // Update the participant_count in the calendars table
-            $calendar->update(['participant_count' => $participantCount]);
+            // Update the participant_count in the events table
+            $event->update(['participant_count' => $participantCount]);
         }
 
         $this->info('Participant counts updated successfully.');

@@ -42,4 +42,6 @@
         </div>
     </div>
 
+    {{-- {{ phpinfo(); }} --}}
+
 </x-layout>
