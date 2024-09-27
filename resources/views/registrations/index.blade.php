@@ -44,6 +44,7 @@
                         <th class="border px-4 py-2">
                             <a
                                 href="{{ route('registrations.index', ['sort_by' => 'dateto', 'direction' => $direction === 'asc' ? 'desc' : 'asc']) }}">
+
                                 End Date
                                 @if ($sort_by === 'dateto')
                                 <span>{{ $direction === 'asc' ? '↑' : '↓' }}</span>
